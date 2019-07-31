@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Portfolio{% endblock title %}
+
+{% block content %}
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Welcome to Anonym de Deven's Blog.</h1>
+        <p class="lead text-muted">Life is a beautiful lie. Enjoy every moment accepting  a better version of you. Does it seems paradoxial? But it is what it is cheers.   </p>
+        <p>
+            <a href="mailto:devendraa769@gmail.com" class="btn btn-primary my-2">Email me</a>
+        </p>
+        <!-- <img src="{% static 'deven.jpg' %}" class="img-fluid img-thumbnail" alt="image" height="400px" width="700px"> -->
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ job.image.url }}" alt="image" class="card-image-top" height="288px">
+                    <div class="card-body">
+                        <p class="card-text">{{ job.summary }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
